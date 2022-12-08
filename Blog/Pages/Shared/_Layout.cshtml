@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Blog</title>
+    <link href="~/lib/bulma/css/bulma.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+</head>
+<body class="is-flex is-flex-direction-column">
+@*<body class="is-flex is-flex-direction-column">*@
+    <div class="wrapper">
+    @*<div class="is-flex is-flex-direction-column is-flex-grow-1">*@
+        <header>
+            <nav class="navbar is-dark">
+                <div class="navbar-brand">
+                    <a asp-page="/Index" class="navbar-item">
+                        <img src="~/logo.png">&nbsp;<strong>tempous blog</strong>
+                    </a>
+                    <a data-target="navbar" class="navbar-burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+                <div id="navbar" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a asp-page="/Content/Articles" class="navbar-item">Articles</a>
+                        <a asp-page="/Content/Projects" class="navbar-item">Projects</a>
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a asp-page="/Content/Apps" class="navbar-link">Software</a>
+                            <div class="navbar-dropdown">
+                                <a asp-page="/Content/Apps" asp-route-type="system" class="navbar-item">System</a>
+                                <a asp-page="/Content/Apps" asp-route-type="applied" class="navbar-item">Applied</a>
+                                <hr class="navbar-divider">
+                                <a asp-page="/Content/Apps" asp-route-type="archived" class="navbar-item">Archived</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a id="toggle" class="button">switch theme</a>
+                                <a asp-page="/Auth/Login" class="button is-primary">sign in</a>
+                                <a asp-page="/Auth/Register" class="button is-light">sign up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            @RenderBody()
+        </main>
+
+        <footer class="has-text-centered">
+        @*<footer class="has-text-centered mt-auto">*@
+            &copy; @DateTime.Now.Year tempous blog
+        </footer>
+    </div>
+
+    <script src="https://app.embed.im/snow.js" defer></script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("scripts", required: false)
+</body>
+</html>

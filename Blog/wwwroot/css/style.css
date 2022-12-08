@@ -1,0 +1,26 @@
+html {
+    font-size: 14px;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(33,115,130,1) 1.4%, rgba(35,39,124,1) 90% );
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
